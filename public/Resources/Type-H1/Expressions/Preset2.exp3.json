@@ -1,0 +1,165 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamHairFront",
+            "Value": 4.0811896324157719,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontR",
+            "Value": 4.777981281280518,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontL",
+            "Value": 7.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontRLength",
+            "Value": -0.4083757996559143,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairAhoge",
+            "Value": 3.488511085510254,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideR",
+            "Value": 5.333124160766602,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideL",
+            "Value": 4.931120872497559,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideClipR",
+            "Value": 3.7108333110809328,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideClipL",
+            "Value": 3.2109405994415285,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSide",
+            "Value": 4.263685703277588,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSideBranch",
+            "Value": 5.960464477539063e-8,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSideLength",
+            "Value": -0.39306068420410159,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBack",
+            "Value": 2.1350347995758058,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBackLength",
+            "Value": -0.3468068242073059,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEar",
+            "Value": -1.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCatEars",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamAnimalEarsShape",
+            "Value": 0.2372978925704956,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamAnimalEarPositionR",
+            "Value": 0.27526724338531496,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamAnimalEarPositionL",
+            "Value": 0.27526652812957766,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamNeck",
+            "Value": 4.104171276092529,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTop",
+            "Value": 1.600000023841858,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamBottom",
+            "Value": -1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamSock_L",
+            "Value": 1.2174688577651978,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamSock_R",
+            "Value": 1.3552954196929932,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTail",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTailAngle",
+            "Value": -0.03431200981140137,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTailSize",
+            "Value": -0.24999094009399415,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorR",
+            "Value": 255.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorG",
+            "Value": 130.48158264160157,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorB",
+            "Value": 168.18533325195313,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyBackgroundTransparency",
+            "Value": 0.045711711049079898,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardOverallTransparency",
+            "Value": 0.0,
+            "Blend": "Add"
+        }
+    ]
+}

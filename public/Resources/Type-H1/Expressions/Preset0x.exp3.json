@@ -1,0 +1,125 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamHairFront",
+            "Value": 6.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontR",
+            "Value": 3.2306718826293947,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontL",
+            "Value": 6.402597904205322,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontOrder",
+            "Value": -1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontLLength",
+            "Value": -0.7440325021743774,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideR",
+            "Value": 1.16499662399292,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideL",
+            "Value": 0.8908817172050476,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideBranchR",
+            "Value": 2.1818275451660158,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideBranchL",
+            "Value": 2.0594544410705568,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairPonytailL",
+            "Value": 3.6793723106384279,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSide",
+            "Value": 6.082799911499023,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBack",
+            "Value": 0.7995089888572693,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBackLength",
+            "Value": -0.16316503286361695,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEyeSize",
+            "Value": 0.7115461826324463,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCuspid",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamNeck",
+            "Value": 5.40892219543457,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTop",
+            "Value": 0.6618009805679321,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamSock_L",
+            "Value": 1.8013436794281006,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamSock_R",
+            "Value": 1.7230224609375,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamShoes",
+            "Value": 2.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorR",
+            "Value": 78.56962585449219,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorG",
+            "Value": 218.8580322265625,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorB",
+            "Value": 237.80393981933595,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyBackgroundTransparency",
+            "Value": 0.09859748184680939,
+            "Blend": "Add"
+        }
+    ]
+}

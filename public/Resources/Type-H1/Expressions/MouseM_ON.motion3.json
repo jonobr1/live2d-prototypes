@@ -1,0 +1,38 @@
+{
+    "Version": 3,
+    "Meta": {
+        "Duration": 0.05,
+        "Fps": 60.0,
+        "Loop": "true",
+        "AreBeziersRestricted": "true",
+        "CurveCount": 3,
+        "TotalSegmentCount": 3,
+        "TotalPointCount": 6,
+        "UserDataCount": 0,
+        "TotalUserDataSize": 0
+    },
+    "Curves": [
+        {
+            "Target": "Parameter",
+            "Id": "ParamMouseClick",
+            "Segments": [
+                0,
+                1.0,
+                0,
+                0.05,
+                1.0
+            ]
+        },
+        {
+            "Target": "Parameter",
+            "Id": "ParamMouseButton",
+            "Segments": [
+                0,
+                -1.0,
+                0,
+                0.05,
+                -1.0
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamSHIFT",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamhandLX",
+            "Value": 35.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamhandLY",
+            "Value": 15.0,
+            "Blend": "Add"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamExpEyeHidePupil",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamExpEyeHideIris",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamExpEyeDark",
+            "Value": 2.0,
+            "Blend": "Add"
+        }
+    ]
+}

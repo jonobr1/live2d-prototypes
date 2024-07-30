@@ -1,0 +1,180 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamHairFront",
+            "Value": 0.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontR",
+            "Value": 1.9639644622802735,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontL",
+            "Value": 0.8843287229537964,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontLength",
+            "Value": -0.45942115783691409,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontRLength",
+            "Value": 0.07146620750427246,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontLLength",
+            "Value": -0.005105555057525635,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairAhoge",
+            "Value": 1.1600370407104493,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideR",
+            "Value": 8.73122787475586,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideL",
+            "Value": 9.058262825012207,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideClipR",
+            "Value": 1.8927843570709229,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideClipL",
+            "Value": 0.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideLengthR",
+            "Value": 0.5661023855209351,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideLengthL",
+            "Value": 0.562034010887146,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairPonytailR",
+            "Value": 5.3713297843933109,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairPonytailL",
+            "Value": 5.2426557540893559,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSide",
+            "Value": 2.118898868560791,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSideLength",
+            "Value": -1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBack",
+            "Value": 1.3310463428497315,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBackLength",
+            "Value": -0.8264416456222534,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamBrow",
+            "Value": 1.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEyeSize",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamPupilPattern",
+            "Value": 2.381336212158203,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEar",
+            "Value": 1.9601991176605225,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCatEars",
+            "Value": 0.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTop",
+            "Value": -0.8999999761581421,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTie",
+            "Value": 2.7948126792907717,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCoat",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCoatNametag",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamBottom",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamLegAcc_L",
+            "Value": 1.0433692932128907,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamShoes",
+            "Value": 1.1128222942352296,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorR",
+            "Value": 255.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorG",
+            "Value": 74.28993225097656,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorB",
+            "Value": 117.7651596069336,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyBackgroundTransparency",
+            "Value": 0.4190378189086914,
+            "Blend": "Add"
+        }
+    ]
+}

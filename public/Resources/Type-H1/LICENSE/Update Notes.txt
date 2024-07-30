@@ -1,0 +1,43 @@
+====================
+V1.0 发布 | Release (2023/08/08) 
+====================
+
+====================
+V1.1 更新 | Update (2023/09/22)
+====================
+新部件：
+角，尾巴，马尾，侧分发型，中分发型
+
+新表情：
+Sweating.exp3.json
+Idea.exp3.json
+
+New Part(s):
+Horn, tail, twintails, side parting, middle parting
+
+New Expression(s): 
+Sweating.exp3.json
+Idea.exp3.json
+
+====================
+V1.2 更新 | Update (2024/01/24)
+====================
+新部件：
+翅膀，长裤，拿麦克风的胳膊
+
+新面捕参数：
+VoiceSilence, VoiceA, VoiceE, VoiceI, VoiceO, VoiceU
+注意：参数VoiceSilence必须被绑定在输入参数VoiceSilence上才能正常使用嘴部追踪，即使您关闭或不使用LipSync
+
+新表情：
+mic.exp3.json
+
+New Part(s):
+Wings, long pants, arm holding a mic
+
+New Face-tracking parameter(s):
+VoiceSilence, VoiceA, VoiceE, VoiceI, VoiceO, VoiceU
+Note: For mouth tracking to work correctly, the parameter VoiceSilence must be bound to the input parameter VoiceSilence even if the lipsync function was disabled in VTubeStudio.
+
+New Expressions(s): 
+mic.exp3.json

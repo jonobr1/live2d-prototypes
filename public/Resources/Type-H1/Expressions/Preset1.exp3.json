@@ -1,0 +1,145 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamHairFront",
+            "Value": 1.9908289909362794,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontR",
+            "Value": 5.0766119956970219,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontL",
+            "Value": -1.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairAhoge",
+            "Value": 2.0457046031951906,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairAhogeSize",
+            "Value": -0.199083149433136,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideR",
+            "Value": 5.869112014770508,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideL",
+            "Value": 7.343091011047363,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideClipL",
+            "Value": 0.574276328086853,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideBranchR",
+            "Value": 1.0783637762069703,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairFrontSideLengthR",
+            "Value": 0.4032706022262573,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairSide",
+            "Value": 3.052600860595703,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBack",
+            "Value": 2.883610963821411,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamHairBackLength",
+            "Value": -0.9285338521003723,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamBrow",
+            "Value": 1.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamThickness",
+            "Value": 0.8103792667388916,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEyeSize",
+            "Value": 0.35233795642852785,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamPupilPattern",
+            "Value": 1.4701498746871949,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamEar",
+            "Value": 1.2659602165222169,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCuspid",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamNeck",
+            "Value": 6.329806327819824,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamTop",
+            "Value": 0.9954138994216919,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCoat",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamCoatPin",
+            "Value": 3.5,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamLegAcc_L",
+            "Value": 2.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorR",
+            "Value": 255.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardColorG",
+            "Value": 150.23582458496095,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyBackgroundTransparency",
+            "Value": 0.0752132385969162,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamKeyboardOverallTransparency",
+            "Value": 0.0,
+            "Blend": "Add"
+        }
+    ]
+}

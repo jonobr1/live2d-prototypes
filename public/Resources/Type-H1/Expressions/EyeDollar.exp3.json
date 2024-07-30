@@ -1,0 +1,15 @@
+{
+    "Type": "Live2D Expression",
+    "Parameters": [
+        {
+            "Id": "ParamExpEyeDollar",
+            "Value": 1.0,
+            "Blend": "Add"
+        },
+        {
+            "Id": "ParamExpEyeHidePupil",
+            "Value": 1.0,
+            "Blend": "Add"
+        }
+    ]
+}

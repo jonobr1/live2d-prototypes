@@ -10,6 +10,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      '@components': path.resolve(__dirname, './src/components'),
+      '@views': path.resolve(__dirname, './src/views'),
       '@live2d/framework': path.resolve(__dirname, './Live2D/Framework/src'),
       '@live2d/core': path.resolve(__dirname, './Live2D/Core'),
     },

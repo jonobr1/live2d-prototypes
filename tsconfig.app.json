@@ -24,8 +24,10 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
+      "@components": ["src/components/*"],
       "@live2d/framework/*": ["Live2D/Framework/src/*"],
-      "@live2d/core/*": ["Live2D/Core/*"]
+      "@live2d/core/*": ["Live2D/Core/*"],
+      "@views": ["src/views/*"]
     }
   },
   "include": ["src", "Live2D"]
