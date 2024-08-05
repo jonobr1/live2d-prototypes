@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 /**
  * Copyright(c) Live2D Inc. All rights reserved.
  *
@@ -116,6 +119,7 @@ export class AppWavFileHandler {
         });
       };
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const asyncWavFileManager = (async () => {
         this._byteReader._fileByte = await asyncFileLoad();
         this._byteReader._fileDataView = new DataView(

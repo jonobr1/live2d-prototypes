@@ -7,6 +7,8 @@ import * as AppDefine from '../components/Live2D/AppDefine';
 import { AppGLManager } from '../components/Live2D/AppGLManager';
 import Live2DCubismCore from '@live2d/core/live2dcubismcore.js?url';
 
+import './DefaultLive2D.css';
+
 export default function App(props: { model?: string; playing?: boolean }) {
   const domElement = useRef<HTMLDivElement | null>(null);
 
@@ -45,7 +47,9 @@ export default function App(props: { model?: string; playing?: boolean }) {
     }
 
     function unmount() {
-      AppDelegate.releaseInstance();
+      // N.B: It's a singleton, so don't need to
+      // dealloc everything.
+      // AppDelegate.releaseInstance();
     }
 
     function resize() {

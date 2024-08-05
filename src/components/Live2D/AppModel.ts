@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 /**
  * Copyright(c) Live2D Inc. All rights reserved.
  *
@@ -97,6 +100,7 @@ export class AppModel extends CubismUserModel {
         // 結果を保存
         this.setupModel(setting);
       })
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .catch(error => {
         // model3.json読み込みでエラーが発生した時点で描画は不可能なので、setupせずエラーをcatchして何もしない
         CubismLogError(`Failed to load file ${this._modelHomeDir}${fileName}`);

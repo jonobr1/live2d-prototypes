@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 /**
  * Copyright(c) Live2D Inc. All rights reserved.
  *
@@ -85,10 +88,14 @@ export class AppView {
     this._touchManager = null;
     this._deviceToScreen = null;
 
-    this._gear.release();
+    if (this._gear) {
+      this._gear.release();
+    }
     this._gear = null;
 
-    this._back.release();
+    if (this._back) {
+      this._back.release();
+    }
     this._back = null;
 
     gl.deleteProgram(this._programId);
@@ -229,6 +236,7 @@ export class AppView {
 
       // 歯車にタップしたか
       if (
+        this._gear &&
         this._gear.isHit(
           pointX * window.devicePixelRatio,
           pointY * window.devicePixelRatio

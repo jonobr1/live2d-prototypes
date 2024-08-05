@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 /**
  * Copyright(c) Live2D Inc. All rights reserved.
  *
@@ -103,7 +106,7 @@ export class AppDelegate {
   public onResize(width: number, height: number): void {
     this._resizeCanvas(width, height);
     this._view?.initialize();
-    this._view?.initializeSprite();
+    // this._view?.initializeSprite();
   }
 
   /**
@@ -138,7 +141,7 @@ export class AppDelegate {
       AppPal.updateTime();
 
       // 画面の初期化
-      gl.clearColor(0.0, 0.0, 0.0, 1.0);
+      gl.clearColor(0.0, 0.0, 0.0, 0);
 
       // 深度テストを有効化
       gl.enable(gl.DEPTH_TEST);
@@ -280,7 +283,7 @@ export class AppDelegate {
 
     AppPal.updateTime();
 
-    this._view?.initializeSprite();
+    // this._view?.initializeSprite();
   }
 
   /**
