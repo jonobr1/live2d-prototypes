@@ -2,14 +2,18 @@ import { useEffect, useState } from 'react';
 import ListView from './views/ListView';
 import DefaultLive2D from './views/DefaultLive2D';
 
-const views = [{ name: 'Default Live2D Viewer', href: '#default-live2d' }];
+const views = [
+  {
+    name: 'Default Live2D Viewer',
+    href: '#default-live2d',
+    View: DefaultLive2D,
+  },
+];
 
 /**
  * Router to handle app delegation
  */
 export default function App() {
-  let View = null;
-
   const [hash, setHash] = useState<string>(window.location.hash);
 
   useEffect(mount, []);
@@ -20,10 +24,12 @@ export default function App() {
     });
   }
 
-  if (hash.includes('default-live2d')) {
-    View = <DefaultLive2D />;
-  } else {
-    View = <ListView views={views} />;
+  for (const vid in views) {
+    const { href, View } = views[vid];
+    if (hash.includes(href)) {
+      return <View />;
+    }
   }
-  return View;
+
+  return <ListView views={views} />;
 }

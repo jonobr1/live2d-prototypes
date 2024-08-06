@@ -5,7 +5,7 @@ import styles from './ListView.module.css';
 /**
  *
  */
-export default function ListView({
+export default function View({
   views,
 }: {
   views?: { name: string; href: string }[];

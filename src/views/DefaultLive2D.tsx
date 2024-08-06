@@ -10,7 +10,7 @@ import Live2DCubismCore from '@live2d/core/live2dcubismcore.js?url';
 
 import styles from './DefaultLive2D.module.css';
 
-export default function App(props: { model?: string; playing?: boolean }) {
+export default function View(props: { model?: string; playing?: boolean }) {
   const domElement = useRef<HTMLDivElement | null>(null);
 
   useEffect(mount, []);
