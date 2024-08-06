@@ -106,7 +106,7 @@ export default function View(props: { model?: string; playing?: boolean }) {
     }
 
     async function ready(model: AppModel) {
-      if (model._state === LoadStep.CompleteSetup) {
+      if (model.getModel() && model._state === LoadStep.CompleteSetup) {
         return true;
       } else {
         await sleep(100);
@@ -230,7 +230,11 @@ export default function View(props: { model?: string; playing?: boolean }) {
       const index = parseInt(`${param[1]}`);
       const min = cubismModel.getParameterMinimumValue(index);
       const max = cubismModel.getParameterMaximumValue(index);
-      const value = Math.random() * (max - min) + min;
+      let value = Math.random() * (max - min) + min;
+      // Hack: Hide or show opacity based values
+      if (min === 0 && max === 1) {
+        value = Math.round(value);
+      }
       cubismModel.setParameterValueByIndex(index, value);
     });
     cubismModel.saveParameters();
