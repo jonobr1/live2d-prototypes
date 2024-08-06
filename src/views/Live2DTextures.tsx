@@ -98,9 +98,10 @@ export default function View(props: { model?: string; playing?: boolean }) {
       cubismModel.setPartOpacityByIndex(53, 0);
       cubismModel.setPartOpacityByIndex(45, 0);
 
-      // TODO: This resets on hot reload. Why?
       // 116: "ParamKeyboardPosition"
+      cubismModel.loadParameters();
       cubismModel.setParameterValueByIndex(116, 1);
+      cubismModel.saveParameters();
 
       refs.current.model = model;
     }
