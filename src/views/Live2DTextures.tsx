@@ -47,7 +47,7 @@ const PRESETS = [
 export default function View(props: { model?: string; playing?: boolean }) {
   const domElement = useRef<HTMLDivElement | null>(null);
   const refs = useRef<{ model: AppModel | null }>({ model: null });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(mount, []);
   useEffect(load, [props.model]);
@@ -104,6 +104,7 @@ export default function View(props: { model?: string; playing?: boolean }) {
       cubismModel.saveParameters();
 
       refs.current.model = model;
+      setIsLoading(false);
     }
 
     async function ready(model: AppModel) {
