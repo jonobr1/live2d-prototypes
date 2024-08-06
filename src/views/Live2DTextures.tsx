@@ -108,11 +108,11 @@ export default function View(props: { model?: string; playing?: boolean }) {
     }
 
     async function ready(model: AppModel) {
-      if (model.getModel() && model._state === LoadStep.CompleteSetup) {
+      if (!!model.getModel() && model._state === LoadStep.CompleteSetup) {
         return true;
       } else {
         await sleep(100);
-        ready(model);
+        return ready(model);
       }
     }
 
