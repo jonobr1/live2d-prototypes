@@ -47,7 +47,7 @@ import { TextureInfo } from './AppTextureManager';
 import { AppWavFileHandler } from './AppWavFileHandler';
 import { CubismMoc } from '@live2d/framework/model/cubismmoc';
 
-enum LoadStep {
+export enum LoadStep {
   LoadAssets,
   LoadModel,
   WaitLoadModel,
