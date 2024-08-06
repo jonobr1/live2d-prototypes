@@ -11,6 +11,10 @@
   bottom: 0;
 
   margin: 1rem;
+
+  span {
+    padding: 0 1rem;
+  }
 }
 
 .loading {
