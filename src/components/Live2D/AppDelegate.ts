@@ -8,7 +8,10 @@
  * that can be found at https://www.live2d.com/eula/live2d-open-software-license-agreement_en.html.
  */
 
-import { CubismFramework, Option } from '@live2d/framework/live2dcubismframework';
+import {
+  CubismFramework,
+  Option,
+} from '@live2d/framework/live2dcubismframework';
 
 import * as AppDefine from './AppDefine';
 import { AppLive2DManager } from './AppLive2DManager';
@@ -140,6 +143,10 @@ export class AppDelegate {
       // 時間更新
       AppPal.updateTime();
 
+      if (this._onRunHandler) {
+        this._onRunHandler(AppPal.s_currentFrame);
+      }
+
       // 画面の初期化
       gl.clearColor(0.0, 0.0, 0.0, 0);
 
@@ -169,11 +176,15 @@ export class AppDelegate {
     loop();
   }
 
+  public onRun(handler: (elapsed: number) => void): AppDelegate {
+    this._onRunHandler = handler;
+    return this;
+  }
+
   /**
    * シェーダーを登録する。
    */
-  public createShader(): WebGLProgram | null{
-
+  public createShader(): WebGLProgram | null {
     if (gl === null) {
       return null;
     }
@@ -260,6 +271,7 @@ export class AppDelegate {
     this._mouseX = 0.0;
     this._mouseY = 0.0;
     this._isEnd = false;
+    this._onRunHandler = null;
 
     this._cubismOption = new Option();
     this._view = new AppView();
@@ -304,6 +316,7 @@ export class AppDelegate {
   _mouseY: number; // マウスY座標
   _isEnd: boolean; // APP終了しているか
   _textureManager: AppTextureManager | null; // テクスチャマネージャー
+  _onRunHandler: (elapsed: number) => void | null;
 }
 
 /**
