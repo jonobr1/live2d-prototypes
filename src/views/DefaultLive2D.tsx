@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import cn from 'classnames';
 
 import { AppDelegate } from '../components/Live2D/AppDelegate';
 import * as AppDefine from '../components/Live2D/AppDefine';
 import { AppGLManager } from '../components/Live2D/AppGLManager';
 import Live2DCubismCore from '@live2d/core/live2dcubismcore.js?url';
 
-import './DefaultLive2D.css';
+import styles from './DefaultLive2D.module.css';
 
 export default function App(props: { model?: string; playing?: boolean }) {
   const domElement = useRef<HTMLDivElement | null>(null);
@@ -65,5 +66,5 @@ export default function App(props: { model?: string; playing?: boolean }) {
     // TODO: Load Live2D Cubism Model
   }
 
-  return <div className="live2d-default view" ref={domElement} />;
+  return <div className={cn(styles.view)} ref={domElement} />;
 }

@@ -1,0 +1,7 @@
+.view {
+  padding: 1rem;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  ul {
+    padding: 1rem;
+  }
+}
