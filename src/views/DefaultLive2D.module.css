@@ -3,3 +3,30 @@
   height: 100vh;
   overflow: hidden;
 }
+
+.ui {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  margin: 1rem;
+}
+
+.loading {
+  animation: pulse 0.1s infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

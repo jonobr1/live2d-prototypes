@@ -1,6 +1,4 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { AppDelegate } from '../components/Live2D/AppDelegate';
@@ -12,9 +10,44 @@ import Live2DCubismCore from '@live2d/core/live2dcubismcore.js?url';
 import styles from './DefaultLive2D.module.css';
 import { AppLive2DManager } from '../components/Live2D/AppLive2DManager';
 
+let PRESET: number = 0;
+const PRESETS = [
+  [
+    'Type-H1.4096/Default/texture_00.png',
+    'Type-H1.4096/Default/texture_01.png',
+    'Type-H1.4096/Default/texture_02.png',
+  ],
+  [
+    'Type-H1.4096/Preset0x/texture_00.png',
+    'Type-H1.4096/Preset0x/texture_01.png',
+    'Type-H1.4096/Preset0x/texture_02.png',
+  ],
+  [
+    'Type-H1.4096/Preset1/texture_00.png',
+    'Type-H1.4096/Preset1/texture_01.png',
+    'Type-H1.4096/Preset1/texture_02.png',
+  ],
+  [
+    'Type-H1.4096/Preset2/texture_00.png',
+    'Type-H1.4096/Preset2/texture_01.png',
+    'Type-H1.4096/Preset2/texture_02.png',
+  ],
+  [
+    'Type-H1.4096/Preset3/texture_00.png',
+    'Type-H1.4096/Preset3/texture_01.png',
+    'Type-H1.4096/Preset3/texture_02.png',
+  ],
+  [
+    'Type-H1.4096/Preset4/texture_00.png',
+    'Type-H1.4096/Preset4/texture_01.png',
+    'Type-H1.4096/Preset4/texture_02.png',
+  ],
+];
+
 export default function View(props: { model?: string; playing?: boolean }) {
   const domElement = useRef<HTMLDivElement | null>(null);
   const refs = useRef<{ model: AppModel | null }>({ model: null });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(mount, []);
   useEffect(load, [props.model]);
@@ -51,19 +84,23 @@ export default function View(props: { model?: string; playing?: boolean }) {
       const manager = AppLive2DManager.getInstance();
       const model = manager.getModel(0);
 
+      // Model is loaded
       await ready(model);
 
       // 12: "ModeB_panel3"
       // 13: "ModeB_arms2"
       // 53: "arms"
+      // 45: "functionkey"
       const cubismModel = model.getModel();
 
       cubismModel.setPartOpacityByIndex(12, 0);
       cubismModel.setPartOpacityByIndex(13, 0);
       cubismModel.setPartOpacityByIndex(53, 0);
+      cubismModel.setPartOpacityByIndex(45, 0);
 
+      // TODO: This resets on hot reload. Why?
       // 116: "ParamKeyboardPosition"
-      cubismModel.setParameterValueByIndex(116, 0.5);
+      cubismModel.setParameterValueByIndex(116, 1);
 
       refs.current.model = model;
     }
@@ -87,12 +124,21 @@ export default function View(props: { model?: string; playing?: boolean }) {
       }
 
       const id = `Param${e.key.toUpperCase()}`;
-      const { ids } = refs.current.model.getModel().getModel().parameters;
+      const cubismModel = refs.current.model.getModel();
+      const { ids } = cubismModel.getModel().parameters;
       const index = ids.indexOf(id);
 
       if (index > 0) {
-        const value = refs.current.model.getModel().getParameterMaximumValue(index);
-        refs.current.model.getModel().setParameterValueByIndex(index, value);
+        cubismModel.loadParameters();
+        const value = cubismModel.getParameterMaximumValue(index);
+        cubismModel.setParameterValueByIndex(index, value);
+        cubismModel.saveParameters();
+        setTimeout(() => {
+          cubismModel.loadParameters();
+          const value = cubismModel.getParameterMinimumValue(index);
+          cubismModel.setParameterValueByIndex(index, value);
+          cubismModel.saveParameters();
+        }, 100);
       }
     }
 
@@ -100,6 +146,7 @@ export default function View(props: { model?: string; playing?: boolean }) {
       window.removeEventListener('resize', resize);
       window.removeEventListener('keypress', keypress);
       AppDelegate.releaseInstance();
+      AppLive2DManager.releaseInstance();
     }
 
     function resize() {
@@ -115,5 +162,87 @@ export default function View(props: { model?: string; playing?: boolean }) {
     // TODO: Load Live2D Cubism Model
   }
 
-  return <div className={cn(styles.view)} ref={domElement} />;
+  function change() {
+    if (!refs.current.model) {
+      return;
+    }
+    setIsLoading(true);
+    // Swap out components with new textures
+    const textureManager = AppDelegate.getInstance().getTextureManager();
+    textureManager?.releaseTextures();
+    PRESET = (PRESET + 1) % PRESETS.length;
+    refs.current.model
+      .swapTextures(PRESETS[PRESET])
+      .then(() => setIsLoading(false));
+
+    const cubismModel = refs.current.model.getModel();
+    cubismModel.loadParameters();
+    // Params to mix up
+    [
+      ['ParamHairAhoge', 8],
+      ['ParamHairAhogeAngle', 9],
+      ['ParamHairAhogeSize', 10],
+      // [['ParamHairFrontSideR', 11], ['ParamHairFrontSideL', 12 ]],
+      // [['ParamHairFrontSideClipR', 13], ['ParamHairFrontSideClipL', 14 ]],
+      // [['ParamHairFrontSideBranchR', 15], ['ParamHairFrontSideBranchL', 16 ]],
+      // [['ParamHairFrontSideLengthR', 17], ['ParamHairFrontSideLengthL', 18 ]],
+      // [['ParamHairPonytailR', 19], ['ParamHairPonytailL', 20 ]],
+      // [['ParamHairPonytailLengthR', 21], ['ParamHairPonytailLengthL', 22 ]],
+      ['ParamHairSide', 23],
+      ['ParamHairSideBranch', 24],
+      ['ParamHairSideLength', 25],
+      ['ParamHairBack', 26],
+      ['ParamHairBackLength', 27],
+      ['ParamBrow', 28],
+      ['ParamBrowAngle', 29],
+      ['ParamThickness', 30],
+      ['ParamEyeSize', 31],
+      ['ParamEyelash', 32],
+      ['ParamPupilPattern', 33],
+
+      ['ParamCatEars', 36],
+      ['ParamBearEars', 37],
+      ['ParamBunnyrEars', 38],
+      ['ParamAnimalEarsShape', 39],
+      // [['ParamAnimalEarPositionR', 40], ['ParamAnimalEarPositionL', 41 ]],
+      ['ParamHorn', 42],
+      // [['ParamHornLengthR', 43], ['ParamHornLengthL', 44 ]],
+      // [['ParamHornSizeR', 45], ['ParamHornSizeL', 46 ]],
+
+      ['ParamNeck', 47],
+      ['ParamTop', 48],
+      ['ParamTie', 49],
+      ['ParamCoat', 50],
+      ['ParamCoatPin', 51],
+      ['ParamCoatNametag', 52],
+      ['ParamBottom', 53],
+      ['ParamLegAcc_L', 54],
+      ['ParamLegAcc_R', 55],
+      ['ParamSock_L', 56],
+      ['ParamSock_R', 57],
+      ['ParamShoes', 58],
+      ['ParamWings', 59],
+      ['ParamWingSize', 60],
+      // ['ParamTail', 61],
+      // ['ParamTailAngle', 62],
+      // ['ParamTailSize', 63],
+    ].forEach((param) => {
+      const index = parseInt(`${param[1]}`);
+      const min = cubismModel.getParameterMinimumValue(index);
+      const max = cubismModel.getParameterMaximumValue(index);
+      const value = Math.random() * (max - min) + min;
+      cubismModel.setParameterValueByIndex(index, value);
+    });
+    cubismModel.saveParameters();
+  }
+
+  return (
+    <div className={cn(styles.view)}>
+      <div ref={domElement} />
+      <div className={cn(styles.ui)}>
+        <button onClick={change}>Change Skin</button>
+      </div>
+      {isLoading && <div className={cn(styles.loading)}>Loading...</div>}
+    </div>
+  );
 }

@@ -487,6 +487,56 @@ export class AppModel extends CubismUserModel {
   }
 
   /**
+   * @author jonobr1 
+   */
+  public swapTextures(textures: string[]): Promise<void> {
+    const usePremultiply = true;
+
+    this._state = LoadStep.LoadTexture;
+    this._textureCount = 0;
+
+    const textureCount: number = this._modelSetting.getTextureCount();
+
+    return new Promise(resolve => {
+
+      for(
+        let modelTextureNumber = 0;
+        modelTextureNumber < textureCount;
+        modelTextureNumber++
+      ) {
+        if (this._modelSetting.getTextureFileName(modelTextureNumber) == '') {
+          console.log('getTextureFileName null');
+          continue;
+        }
+  
+        // TODO: Check to see if texture already exists
+        let texturePath = textures[modelTextureNumber];
+        texturePath = this._modelHomeDir + texturePath;
+  
+        const onLoad = (textureInfo: TextureInfo): void => {
+          this.getRenderer().bindTexture(modelTextureNumber, textureInfo.id);
+  
+          this._textureCount++;
+  
+          if (this._textureCount >= textureCount) {
+            this._state = LoadStep.CompleteSetup;
+            resolve();
+          }
+        };
+  
+        AppDelegate.getInstance()
+          .getTextureManager()
+          .createTextureFromPngFile(texturePath, usePremultiply, onLoad);
+        this.getRenderer().setIsPremultipliedAlpha(usePremultiply);
+      }
+  
+      this._state = LoadStep.WaitLoadTexture;
+
+    });
+
+  }
+
+  /**
    * レンダラを再構築する
    */
   public reloadRenderer(): void {
