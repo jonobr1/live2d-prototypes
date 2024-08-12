@@ -8,7 +8,224 @@
 			"Type-H1.4096/texture_02.png"
 		],
 		"Physics": "Type-H1.physics3.json",
-		"DisplayInfo": "Type-H1.cdi3.json"
+		"DisplayInfo": "Type-H1.cdi3.json",
+		"Motions": {
+			"Idle": [
+				{
+					"File": "Motions/idle FULL.motion3.json",
+					"FadeInTime": 0.5,
+					"FadeOutTime": 0.5
+				}
+			]
+		},
+		"Expressions": [
+			{
+				"File": "Expressions/EyeDizzy.exp3.json",
+				"Name": "EyeDizzy"
+			},
+			{
+				"File": "Expressions/EyeDollar.exp3.json",
+				"Name": "EyeDollar"
+			},
+			{
+				"File": "Expressions/EyeTear.exp3.json",
+				"Name": "EyeTear"
+			},
+			{
+				"File": "Expressions/EyeHeart.exp3.json",
+				"Name": "EyeHeart"
+			},
+			{
+				"File": "Expressions/EyeOO.exp3.json",
+				"Name": "EyeOO"
+			},
+			{
+				"File": "Expressions/Glasses.exp3.json",
+				"Name": "Glasses"
+			},
+
+			{
+				"Name": "Key0",
+				"File": "Expressions/Key0.exp3.json"
+			},
+			{
+				"Name": "Key1",
+				"File": "Expressions/Key1.exp3.json"
+			},
+			{
+				"Name": "Key2",
+				"File": "Expressions/Key2.exp3.json"
+			},
+			{
+				"Name": "Key3",
+				"File": "Expressions/Key3.exp3.json"
+			},
+			{
+				"Name": "Key4",
+				"File": "Expressions/Key4.exp3.json"
+			},
+			{
+				"Name": "Key5",
+				"File": "Expressions/Key5.exp3.json"
+			},
+			{
+				"Name": "Key6",
+				"File": "Expressions/Key6.exp3.json"
+			},
+			{
+				"Name": "Key7",
+				"File": "Expressions/Key7.exp3.json"
+			},
+			{
+				"Name": "Key8",
+				"File": "Expressions/Key8.exp3.json"
+			},
+			{
+				"Name": "Key9",
+				"File": "Expressions/Key9.exp3.json"
+			},
+
+			{
+				"Name": "KeyA",
+				"File": "Expressions/KeyA.exp3.json"
+			},
+			{
+				"Name": "KeyB",
+				"File": "Expressions/KeyB.exp3.json"
+			},
+			{
+				"Name": "KeyC",
+				"File": "Expressions/KeyC.exp3.json"
+			},
+			{
+				"Name": "KeyD",
+				"File": "Expressions/KeyD.exp3.json"
+			},
+			{
+				"Name": "KeyE",
+				"File": "Expressions/KeyE.exp3.json"
+			},
+			{
+				"Name": "KeyF",
+				"File": "Expressions/KeyF.exp3.json"
+			},
+			{
+				"Name": "KeyG",
+				"File": "Expressions/KeyG.exp3.json"
+			},
+			{
+				"Name": "KeyH",
+				"File": "Expressions/KeyH.exp3.json"
+			},
+			{
+				"Name": "KeyI",
+				"File": "Expressions/KeyI.exp3.json"
+			},
+			{
+				"Name": "KeyJ",
+				"File": "Expressions/KeyJ.exp3.json"
+			},
+			{
+				"Name": "KeyK",
+				"File": "Expressions/KeyK.exp3.json"
+			},
+			{
+				"Name": "KeyL",
+				"File": "Expressions/KeyL.exp3.json"
+			},
+			{
+				"Name": "KeyM",
+				"File": "Expressions/KeyM.exp3.json"
+			},
+			{
+				"Name": "KeyN",
+				"File": "Expressions/KeyN.exp3.json"
+			},
+			{
+				"Name": "KeyO",
+				"File": "Expressions/KeyO.exp3.json"
+			},
+			{
+				"Name": "KeyP",
+				"File": "Expressions/KeyP.exp3.json"
+			},
+			{
+				"Name": "KeyQ",
+				"File": "Expressions/KeyQ.exp3.json"
+			},
+			{
+				"Name": "KeyR",
+				"File": "Expressions/KeyR.exp3.json"
+			},
+			{
+				"Name": "KeyS",
+				"File": "Expressions/KeyS.exp3.json"
+			},
+			{
+				"Name": "KeyT",
+				"File": "Expressions/KeyT.exp3.json"
+			},
+			{
+				"Name": "KeyU",
+				"File": "Expressions/KeyU.exp3.json"
+			},
+			{
+				"Name": "KeyV",
+				"File": "Expressions/KeyV.exp3.json"
+			},
+			{
+				"Name": "KeyW",
+				"File": "Expressions/KeyW.exp3.json"
+			},
+			{
+				"Name": "KeyX",
+				"File": "Expressions/KeyX.exp3.json"
+			},
+			{
+				"Name": "KeyY",
+				"File": "Expressions/KeyY.exp3.json"
+			},
+			{
+				"Name": "KeyZ",
+				"File": "Expressions/KeyZ.exp3.json"
+			},
+			{
+				"File": "Expressions/Preset0x.exp3.json",
+				"Name": "Preset0x"
+			},
+			{
+				"File": "Expressions/Preset1.exp3.json",
+				"Name": "Preset1"
+			},
+			{
+				"File": "Expressions/Preset2.exp3.json",
+				"Name": "Preset2"
+			},
+			{
+				"File": "Expressions/Preset3.exp3.json",
+				"Name": "Preset3"
+			},
+			{
+				"File": "Expressions/Preset4.exp3.json",
+				"Name": "Preset4"
+			},
+			{
+				"File": "Expressions/Question.exp3.json",
+				"Name": "Question"
+			},
+			{
+				"File": "Expressions/Sigh.exp3.json",
+				"Name": "Sigh"
+			},
+			{
+				"File": "Expressions/Star.exp3.json",
+				"Name": "Star"
+			},
+			{
+				"File": "Expressions/Sweating.exp3.json",
+				"Name": "Sweating"
+			}
+		]
 	},
 	"Groups": [
 		{

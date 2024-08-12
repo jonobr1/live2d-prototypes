@@ -339,9 +339,11 @@ function onClickBegan(e: MouseEvent): void {
  * マウスポインタが動いたら呼ばれる。
  */
 function onMouseMoved(e: MouseEvent): void {
-  if (!AppDelegate.getInstance()._captured) {
-    return;
-  }
+  // if (!AppDelegate.getInstance()._captured) {
+  //   return;
+  // }
+
+  AppDelegate.getInstance()._captured = true;
 
   if (!AppDelegate.getInstance()._view) {
     AppPal.printMessage('view notfound');

@@ -17,6 +17,10 @@
   }
 }
 
+button { 
+  margin: 0 0.5rem;
+}
+
 .loading {
   animation: pulse 0.1s infinite;
   position: fixed;
