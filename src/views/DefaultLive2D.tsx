@@ -16,7 +16,7 @@ export default function View(props: { model?: string; playing?: boolean }) {
   useEffect(load, [props.model]);
 
   function mount() {
-    AppDefine.setModelDir('Type-H1');
+    AppDefine.setModelDir('mode');
     if (!document.head.querySelector('#live2dcubism')) {
       const script = document.createElement('script');
       script.id = 'live2dcubism';
