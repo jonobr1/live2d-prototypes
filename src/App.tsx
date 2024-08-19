@@ -4,6 +4,7 @@ import ListView from './views/ListView';
 import DefaultLive2D from './views/DefaultLive2D';
 import Live2DTextures from './views/Live2DTextures';
 import Live2DExpressions from './views/Live2DExpressions';
+import Live2DLipSyncing from './views/Live2DLipSyncing';
 
 const views = [
   {
@@ -21,6 +22,11 @@ const views = [
     href: '#live2d-expressions',
     View: Live2DExpressions,
   },
+  {
+    name: 'Live 2D Lip Syncing',
+    href: '#live2d-lipsyncing',
+    View: Live2DLipSyncing,
+  }
 ];
 
 /**

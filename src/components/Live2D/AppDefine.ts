@@ -48,7 +48,10 @@ export const PowerImageName = 'CloseNormal.png';
 // モデルを配置したディレクトリ名の配列
 // ディレクトリ名とmodel3.jsonの名前を一致させておくこと
 export const ModelDir: string[] = ['Type-H1'];
-export const ModelDirSize: number = ModelDir.length;
+export function setModelDir(str: string) {
+  ModelDir.length = 0;
+  ModelDir.push(str);
+}
 
 // 外部定義ファイル（json）と合わせる
 export const MotionGroupIdle = 'Idle'; // アイドリング
