@@ -1,0 +1,782 @@
+{
+	"Version": 3,
+	"Parameters": [
+		{
+			"Id": "Param68",
+			"GroupId": "ParamGroup4",
+			"Name": "右まつ毛揺れ_1"
+		},
+		{
+			"Id": "Param69",
+			"GroupId": "ParamGroup4",
+			"Name": "右まつ毛揺れ_2"
+		},
+		{
+			"Id": "Param70",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳揺れ_1"
+		},
+		{
+			"Id": "Param71",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳揺れ_2"
+		},
+		{
+			"Id": "Param72",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳ハイライト揺れ_1"
+		},
+		{
+			"Id": "Param73",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳ハイライト揺れ_2"
+		},
+		{
+			"Id": "Param88",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳ハイライト揺れ_3"
+		},
+		{
+			"Id": "Param89",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳ハイライト揺れ_4"
+		},
+		{
+			"Id": "Param95",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳涙揺れ_1"
+		},
+		{
+			"Id": "Param96",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳涙揺れ_2"
+		},
+		{
+			"Id": "Param97",
+			"GroupId": "ParamGroup4",
+			"Name": "右瞳涙揺れ_3"
+		},
+		{
+			"Id": "Param74",
+			"GroupId": "ParamGroup4",
+			"Name": "左まつ毛揺れ_1"
+		},
+		{
+			"Id": "Param75",
+			"GroupId": "ParamGroup4",
+			"Name": "左まつ毛揺れ_2"
+		},
+		{
+			"Id": "Param76",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳揺れ_1"
+		},
+		{
+			"Id": "Param77",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳揺れ_2"
+		},
+		{
+			"Id": "Param78",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳ハイライト揺れ_1"
+		},
+		{
+			"Id": "Param79",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳ハイライト揺れ_2"
+		},
+		{
+			"Id": "Param90",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳ハイライト揺れ_3"
+		},
+		{
+			"Id": "Param91",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳ハイライト揺れ_4"
+		},
+		{
+			"Id": "Param101",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳涙揺れ_1"
+		},
+		{
+			"Id": "Param99",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳涙揺れ_2"
+		},
+		{
+			"Id": "Param105",
+			"GroupId": "ParamGroup4",
+			"Name": "左瞳涙揺れ_3"
+		},
+		{
+			"Id": "Param",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れ1"
+		},
+		{
+			"Id": "Param2",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れX_1"
+		},
+		{
+			"Id": "Param60",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れ右"
+		},
+		{
+			"Id": "Param61",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れ左"
+		},
+		{
+			"Id": "Param57",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れY_1"
+		},
+		{
+			"Id": "Param58",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れY_2"
+		},
+		{
+			"Id": "Param59",
+			"GroupId": "ParamGroup2",
+			"Name": "スカート揺れY_3"
+		},
+		{
+			"Id": "Param32",
+			"GroupId": "ParamGroup2",
+			"Name": "右リボン1_1"
+		},
+		{
+			"Id": "Param33",
+			"GroupId": "ParamGroup2",
+			"Name": "右リボン2_1"
+		},
+		{
+			"Id": "Param34",
+			"GroupId": "ParamGroup2",
+			"Name": "右リボン3_1"
+		},
+		{
+			"Id": "Param35",
+			"GroupId": "ParamGroup2",
+			"Name": "右リボン3_2"
+		},
+		{
+			"Id": "Param36",
+			"GroupId": "ParamGroup2",
+			"Name": "左リボン3_2"
+		},
+		{
+			"Id": "Param37",
+			"GroupId": "ParamGroup2",
+			"Name": "左リボン3_1"
+		},
+		{
+			"Id": "Param38",
+			"GroupId": "ParamGroup2",
+			"Name": "左リボン2_1"
+		},
+		{
+			"Id": "Param39",
+			"GroupId": "ParamGroup2",
+			"Name": "左リボン1_1"
+		},
+		{
+			"Id": "Param44",
+			"GroupId": "ParamGroup2",
+			"Name": "リボンY_1"
+		},
+		{
+			"Id": "Param65",
+			"GroupId": "ParamGroup2",
+			"Name": "リボンY_2"
+		},
+		{
+			"Id": "Param66",
+			"GroupId": "ParamGroup2",
+			"Name": "リボンY_3"
+		},
+		{
+			"Id": "Param67",
+			"GroupId": "ParamGroup2",
+			"Name": "リボンY_4"
+		},
+		{
+			"Id": "Param40",
+			"GroupId": "ParamGroup2",
+			"Name": "胸揺れ_x"
+		},
+		{
+			"Id": "Param41",
+			"GroupId": "ParamGroup2",
+			"Name": "胸揺れ_y"
+		},
+		{
+			"Id": "Param42",
+			"GroupId": "ParamGroup2",
+			"Name": "ジャケット右"
+		},
+		{
+			"Id": "Param43",
+			"GroupId": "ParamGroup2",
+			"Name": "ジャケット左"
+		},
+		{
+			"Id": "Param55",
+			"GroupId": "ParamGroup2",
+			"Name": "ジャケット右Y揺れ"
+		},
+		{
+			"Id": "Param56",
+			"GroupId": "ParamGroup2",
+			"Name": "ジャケット左Y揺れ"
+		},
+		{
+			"Id": "Param45",
+			"GroupId": "ParamGroup2",
+			"Name": "腰フリル揺れ"
+		},
+		{
+			"Id": "Param46",
+			"GroupId": "ParamGroup2",
+			"Name": "腰フリルY揺れ"
+		},
+		{
+			"Id": "Param30",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり右袖ひらひらZ"
+		},
+		{
+			"Id": "Param62",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり右袖ひらひらY"
+		},
+		{
+			"Id": "Param81",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり左袖ひらひらZ"
+		},
+		{
+			"Id": "Param80",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり左袖ひらひらY"
+		},
+		{
+			"Id": "Param63",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり右袖X"
+		},
+		{
+			"Id": "Param64",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり右袖Y"
+		},
+		{
+			"Id": "Param82",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり左袖X"
+		},
+		{
+			"Id": "Param83",
+			"GroupId": "ParamGroup2",
+			"Name": "ぼんぼり左袖Y"
+		},
+		{
+			"Id": "Param53",
+			"GroupId": "ParamGroup2",
+			"Name": "紐揺れ"
+		},
+		{
+			"Id": "Param84",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕揺れ_1"
+		},
+		{
+			"Id": "Param85",
+			"GroupId": "ParamGroup2",
+			"Name": "右腕揺れ_2"
+		},
+		{
+			"Id": "Param87",
+			"GroupId": "ParamGroup2",
+			"Name": "左腕揺れ_1"
+		},
+		{
+			"Id": "Param86",
+			"GroupId": "ParamGroup2",
+			"Name": "左腕揺れ_2"
+		},
+		{
+			"Id": "Param3",
+			"GroupId": "ParamGroup3",
+			"Name": "中央前髪_1"
+		},
+		{
+			"Id": "Param4",
+			"GroupId": "ParamGroup3",
+			"Name": "中央前髪_2"
+		},
+		{
+			"Id": "Param5",
+			"GroupId": "ParamGroup3",
+			"Name": "中央2前髪_1"
+		},
+		{
+			"Id": "Param6",
+			"GroupId": "ParamGroup3",
+			"Name": "中央2前髪_2"
+		},
+		{
+			"Id": "Param7",
+			"GroupId": "ParamGroup3",
+			"Name": "中央左1前髪_1"
+		},
+		{
+			"Id": "Param8",
+			"GroupId": "ParamGroup3",
+			"Name": "中央左1前髪_2"
+		},
+		{
+			"Id": "Param10",
+			"GroupId": "ParamGroup3",
+			"Name": "中央右1前髪_1"
+		},
+		{
+			"Id": "Param9",
+			"GroupId": "ParamGroup3",
+			"Name": "中央右1前髪_2"
+		},
+		{
+			"Id": "Param13",
+			"GroupId": "ParamGroup3",
+			"Name": "右1前髪_1"
+		},
+		{
+			"Id": "Param15",
+			"GroupId": "ParamGroup3",
+			"Name": "右1前髪_2"
+		},
+		{
+			"Id": "Param16",
+			"GroupId": "ParamGroup3",
+			"Name": "右2前髪_1"
+		},
+		{
+			"Id": "Param17",
+			"GroupId": "ParamGroup3",
+			"Name": "右2前髪_2"
+		},
+		{
+			"Id": "Param18",
+			"GroupId": "ParamGroup3",
+			"Name": "左1前髪_1"
+		},
+		{
+			"Id": "Param19",
+			"GroupId": "ParamGroup3",
+			"Name": "左1前髪_2"
+		},
+		{
+			"Id": "Param20",
+			"GroupId": "ParamGroup3",
+			"Name": "左2前髪_1"
+		},
+		{
+			"Id": "Param21",
+			"GroupId": "ParamGroup3",
+			"Name": "左2前髪_2"
+		},
+		{
+			"Id": "Param22",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ右揺れ_1"
+		},
+		{
+			"Id": "Param23",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ右揺れ_2"
+		},
+		{
+			"Id": "Param24",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ右揺れ_3"
+		},
+		{
+			"Id": "Param25",
+			"GroupId": "ParamGroup3",
+			"Name": "左ロール_1"
+		},
+		{
+			"Id": "Param26",
+			"GroupId": "ParamGroup3",
+			"Name": "左ロール_2"
+		},
+		{
+			"Id": "Param27",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ左揺れ_2"
+		},
+		{
+			"Id": "Param28",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ左揺れ_3"
+		},
+		{
+			"Id": "Param29",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテ左揺れ_1"
+		},
+		{
+			"Id": "Param31",
+			"GroupId": "ParamGroup3",
+			"Name": "右ロール_1"
+		},
+		{
+			"Id": "Param52",
+			"GroupId": "ParamGroup3",
+			"Name": "右ロール_2"
+		},
+		{
+			"Id": "Param11",
+			"GroupId": "ParamGroup3",
+			"Name": "前髪Y_1"
+		},
+		{
+			"Id": "Param12",
+			"GroupId": "ParamGroup3",
+			"Name": "前髪Y_2"
+		},
+		{
+			"Id": "Param47",
+			"GroupId": "ParamGroup3",
+			"Name": "前髪Y_3"
+		},
+		{
+			"Id": "Param48",
+			"GroupId": "ParamGroup3",
+			"Name": "前髪Y_4"
+		},
+		{
+			"Id": "Param49",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテY揺れ_1"
+		},
+		{
+			"Id": "Param50",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテY揺れ_2"
+		},
+		{
+			"Id": "Param54",
+			"GroupId": "ParamGroup3",
+			"Name": "ツインテY揺れ_3"
+		},
+		{
+			"Id": "ParamFacialExpression1",
+			"GroupId": "ParamGroup",
+			"Name": "照れ顔用チーク表示"
+		},
+		{
+			"Id": "ParamFacialExpression2",
+			"GroupId": "ParamGroup",
+			"Name": "ドン引き顔用顔影表示"
+		},
+		{
+			"Id": "ParamFacialExpression3",
+			"GroupId": "ParamGroup",
+			"Name": "涙"
+		},
+		{
+			"Id": "ParamFacialExpression4",
+			"GroupId": "ParamGroup",
+			"Name": "ハイライトなし目"
+		},
+		{
+			"Id": "ParamFacialExpression5",
+			"GroupId": "ParamGroup",
+			"Name": "キラキラ目"
+		},
+		{
+			"Id": "ParamFacialExpression7",
+			"GroupId": "ParamGroup",
+			"Name": "涙(強)"
+		},
+		{
+			"Id": "ParamFacialExpression6",
+			"GroupId": "ParamGroup",
+			"Name": "ハイライト切り替え"
+		},
+		{
+			"Id": "ParamAngleX",
+			"GroupId": "",
+			"Name": "頭部 X"
+		},
+		{
+			"Id": "ParamAngleY",
+			"GroupId": "",
+			"Name": "頭部 Y"
+		},
+		{
+			"Id": "ParamAngleZ",
+			"GroupId": "",
+			"Name": "頭部 Z"
+		},
+		{
+			"Id": "ParamEyeLOpen",
+			"GroupId": "",
+			"Name": "左目　開閉"
+		},
+		{
+			"Id": "ParamEyeLSmile",
+			"GroupId": "",
+			"Name": "左目　笑顔"
+		},
+		{
+			"Id": "ParamEyeROpen",
+			"GroupId": "",
+			"Name": "右目　開閉"
+		},
+		{
+			"Id": "ParamEyeRSmile",
+			"GroupId": "",
+			"Name": "右目　笑顔"
+		},
+		{
+			"Id": "ParamEyeBallX",
+			"GroupId": "",
+			"Name": "目玉 X"
+		},
+		{
+			"Id": "ParamEyeBallY",
+			"GroupId": "",
+			"Name": "目玉 Y"
+		},
+		{
+			"Id": "ParamBrowLY",
+			"GroupId": "",
+			"Name": "左眉　上下"
+		},
+		{
+			"Id": "ParamBrowLAngle",
+			"GroupId": "",
+			"Name": "左眉　角度"
+		},
+		{
+			"Id": "ParamBrowRY",
+			"GroupId": "",
+			"Name": "右眉　上下"
+		},
+		{
+			"Id": "ParamBrowRAngle",
+			"GroupId": "",
+			"Name": "右眉　角度"
+		},
+		{
+			"Id": "ParamBrowLForm",
+			"GroupId": "",
+			"Name": "左眉　変形"
+		},
+		{
+			"Id": "ParamBrowRForm",
+			"GroupId": "",
+			"Name": "右眉　変形"
+		},
+		{
+			"Id": "ParamMouthForm",
+			"GroupId": "",
+			"Name": "口　変形"
+		},
+		{
+			"Id": "ParamMouthOpenY",
+			"GroupId": "",
+			"Name": "口　開閉"
+		},
+		{
+			"Id": "ParamBodyAngleX",
+			"GroupId": "",
+			"Name": "体 X"
+		},
+		{
+			"Id": "ParamBodyAngleY",
+			"GroupId": "",
+			"Name": "体 Y"
+		},
+		{
+			"Id": "ParamBodyAngleZ",
+			"GroupId": "",
+			"Name": "体 Z"
+		},
+		{
+			"Id": "ParamBreath",
+			"GroupId": "",
+			"Name": "呼吸"
+		}
+	],
+	"ParameterGroups": [
+		{
+			"Id": "ParamGroup4",
+			"GroupId": "",
+			"Name": "瞳揺れ"
+		},
+		{
+			"Id": "ParamGroup2",
+			"GroupId": "",
+			"Name": "物理演算"
+		},
+		{
+			"Id": "ParamGroup3",
+			"GroupId": "",
+			"Name": "髪揺れ"
+		},
+		{
+			"Id": "ParamGroup",
+			"GroupId": "",
+			"Name": "表情追加差分"
+		}
+	],
+	"Parts": [
+		{
+			"Id": "Part2",
+			"Name": "前髪"
+		},
+		{
+			"Id": "Part3",
+			"Name": "前髪影"
+		},
+		{
+			"Id": "contour_all",
+			"Name": "輪郭"
+		},
+		{
+			"Id": "Part95",
+			"Name": "耳"
+		},
+		{
+			"Id": "mouth_all",
+			"Name": "口"
+		},
+		{
+			"Id": "eye_all",
+			"Name": "目"
+		},
+		{
+			"Id": "eyebrow_all",
+			"Name": "眉"
+		},
+		{
+			"Id": "Part4",
+			"Name": "胸リボン"
+		},
+		{
+			"Id": "Part5",
+			"Name": "ジャケット"
+		},
+		{
+			"Id": "Part9",
+			"Name": "胴体"
+		},
+		{
+			"Id": "Part10",
+			"Name": "左脚"
+		},
+		{
+			"Id": "Part11",
+			"Name": "右脚"
+		},
+		{
+			"Id": "Part12",
+			"Name": "首"
+		},
+		{
+			"Id": "Part14",
+			"Name": "左腕"
+		},
+		{
+			"Id": "Part15",
+			"Name": "右腕"
+		},
+		{
+			"Id": "Part16",
+			"Name": "ツインテ左"
+		},
+		{
+			"Id": "Part18",
+			"Name": "ツインテ右"
+		},
+		{
+			"Id": "Part20",
+			"Name": "奥髪"
+		},
+		{
+			"Id": "Part6",
+			"Name": "上唇"
+		},
+		{
+			"Id": "Part7",
+			"Name": "下唇"
+		},
+		{
+			"Id": "Part8",
+			"Name": "口内"
+		},
+		{
+			"Id": "Part27",
+			"Name": "涙(強)"
+		},
+		{
+			"Id": "Part",
+			"Name": "涙(小)"
+		},
+		{
+			"Id": "Part28",
+			"Name": "デフォルメ目ハイライト"
+		},
+		{
+			"Id": "Part29",
+			"Name": "キラキラ目"
+		},
+		{
+			"Id": "Part30",
+			"Name": "デフォルメ目"
+		},
+		{
+			"Id": "Part90",
+			"Name": "瞳"
+		},
+		{
+			"Id": "Part97",
+			"Name": "まつ毛"
+		},
+		{
+			"Id": "Part315",
+			"Name": "目影"
+		}
+	],
+	"CombinedParameters": [
+		[
+			"Param68",
+			"Param69"
+		],
+		[
+			"Param74",
+			"Param75"
+		],
+		[
+			"Param34",
+			"Param35"
+		],
+		[
+			"Param36",
+			"Param37"
+		],
+		[
+			"ParamMouthForm",
+			"ParamMouthOpenY"
+		]
+	]
+}

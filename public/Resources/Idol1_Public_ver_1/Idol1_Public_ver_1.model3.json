@@ -1,0 +1,35 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Idol1_Public_ver_1.moc3",
+		"Textures": [
+			"Idol1_Public_ver_1.2048/texture_00.png",
+			"Idol1_Public_ver_1.2048/texture_01.png",
+			"Idol1_Public_ver_1.2048/texture_02.png",
+			"Idol1_Public_ver_1.2048/texture_03.png",
+			"Idol1_Public_ver_1.2048/texture_04.png",
+			"Idol1_Public_ver_1.2048/texture_05.png",
+			"Idol1_Public_ver_1.2048/texture_06.png",
+			"Idol1_Public_ver_1.2048/texture_07.png",
+			"Idol1_Public_ver_1.2048/texture_08.png",
+			"Idol1_Public_ver_1.2048/texture_09.png",
+			"Idol1_Public_ver_1.2048/texture_10.png",
+			"Idol1_Public_ver_1.2048/texture_11.png",
+			"Idol1_Public_ver_1.2048/texture_12.png"
+		],
+		"Physics": "Idol1_Public_ver_1.physics3.json",
+		"DisplayInfo": "Idol1_Public_ver_1.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}
