@@ -636,6 +636,10 @@ export class AppModel extends CubismUserModel {
       this._pose.updateParameters(this._model, deltaTimeSeconds);
     }
 
+    if (this._onUpdateHandler) {
+      this._onUpdateHandler();
+    }
+
     this._model.update();
   }
 
@@ -1029,6 +1033,11 @@ export class AppModel extends CubismUserModel {
     this._allMotionCount = 0;
     this._wavFileHandler = new AppWavFileHandler();
     this._consistency = false;
+    this._onUpdateHandler = undefined; // @author jonobr1
+  }
+
+  public onUpdate(func: () => void) {
+    this._onUpdateHandler = func;
   }
 
   _modelSetting: ICubismModelSetting; // モデルセッティング情報
@@ -1036,6 +1045,7 @@ export class AppModel extends CubismUserModel {
   _userTimeSeconds: number; // デルタ時間の積算値[秒]
 
   _eyeBlinkIds: csmVector<CubismIdHandle>; // モデルに設定された瞬き機能用パラメータID
+  _lipsync: boolean;
   _lipSyncIds: csmVector<CubismIdHandle>; // モデルに設定されたリップシンク機能用パラメータID
 
   _motions: csmMap<string, ACubismMotion>; // 読み込まれているモーションのリスト
@@ -1058,4 +1068,7 @@ export class AppModel extends CubismUserModel {
   _allMotionCount: number; // モーション総数
   _wavFileHandler: AppWavFileHandler; //wavファイルハンドラ
   _consistency: boolean; // MOC3一貫性チェック管理用
+
+  // @author jonobr1
+  protected _onUpdateHandler?: () => void;
 }
