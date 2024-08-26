@@ -5,6 +5,7 @@ import DefaultLive2D from './views/DefaultLive2D';
 import Live2DTextures from './views/Live2DTextures';
 import Live2DExpressions from './views/Live2DExpressions';
 import Live2DLipSyncing from './views/Live2DLipSyncing';
+import TwoCharacters from './views/TwoCharacters';
 
 const views = [
   {
@@ -26,6 +27,11 @@ const views = [
     name: 'Live 2D Lip Syncing',
     href: '#live2d-lipsyncing',
     View: Live2DLipSyncing,
+  },
+  {
+    name: '2 Models',
+    href: '#live2d-2-characters',
+    View: TwoCharacters,
   }
 ];
 

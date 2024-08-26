@@ -194,6 +194,21 @@ export class AppLive2DManager {
     this._models.at(0).loadAssets(modelPath, modelJsonName);
   }
 
+  /**
+   * @author jonobr1
+   */
+  public addModelToScene(modelName: string): AppModel {
+    if (AppDefine.DebugLogEnable) {
+      AppPal.printMessage(`[APP]model add ${modelName}`);
+    }
+    const modelPath: string = AppDefine.ResourcesPath + modelName + '/';
+    const modelJsonName: string = modelName + '.model3.json';
+    const model = new AppModel();
+    this._models.pushBack(model);
+    model.loadAssets(modelPath, modelJsonName);
+    return model;
+  }
+
   public setViewMatrix(m: CubismMatrix44) {
     for (let i = 0; i < 16; i++) {
       this._viewMatrix.getArray()[i] = m.getArray()[i];
