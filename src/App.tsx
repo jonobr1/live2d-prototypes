@@ -1,31 +1,11 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import ListView from './views/ListView';
 
-const DefaultLive2D = lazy(() =>
-  import('./views/DefaultLive2D').then((module) => ({
-    default: module.default,
-  }))
-);
-const Live2DTextures = lazy(() =>
-  import('./views/Live2DTextures').then((module) => ({
-    default: module.default,
-  }))
-);
-const Live2DExpressions = lazy(() =>
-  import('./views/Live2DExpressions').then((module) => ({
-    default: module.default,
-  }))
-);
-const Live2DLipSyncing = lazy(() =>
-  import('./views/DefaultLive2D').then((module) => ({
-    default: module.default,
-  }))
-);
-const TwoCharacters = lazy(() =>
-  import('./views/TwoCharacters').then((module) => ({
-    default: module.default,
-  }))
-);
+const DefaultLive2D = lazy(() => import('./views/DefaultLive2D'));
+const Live2DTextures = lazy(() => import('./views/Live2DTextures'));
+const Live2DExpressions = lazy(() => import('./views/Live2DExpressions'));
+const Live2DLipSyncing = lazy(() => import('./views/DefaultLive2D'));
+const TwoCharacters = lazy(() => import('./views/TwoCharacters'));
 
 const views = [
   {
