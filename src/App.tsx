@@ -1,11 +1,31 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import ListView from './views/ListView';
 
-import DefaultLive2D from './views/DefaultLive2D';
-import Live2DTextures from './views/Live2DTextures';
-import Live2DExpressions from './views/Live2DExpressions';
-import Live2DLipSyncing from './views/Live2DLipSyncing';
-import TwoCharacters from './views/TwoCharacters';
+const DefaultLive2D = lazy(() =>
+  import('./views/DefaultLive2D').then((module) => ({
+    default: module.default,
+  }))
+);
+const Live2DTextures = lazy(() =>
+  import('./views/Live2DTextures').then((module) => ({
+    default: module.default,
+  }))
+);
+const Live2DExpressions = lazy(() =>
+  import('./views/Live2DExpressions').then((module) => ({
+    default: module.default,
+  }))
+);
+const Live2DLipSyncing = lazy(() =>
+  import('./views/DefaultLive2D').then((module) => ({
+    default: module.default,
+  }))
+);
+const TwoCharacters = lazy(() =>
+  import('./views/TwoCharacters').then((module) => ({
+    default: module.default,
+  }))
+);
 
 const views = [
   {
@@ -32,7 +52,7 @@ const views = [
     name: '2 Models',
     href: '#live2d-2-characters',
     View: TwoCharacters,
-  }
+  },
 ];
 
 /**
@@ -52,7 +72,11 @@ export default function App() {
   for (const vid in views) {
     const { href, View } = views[vid];
     if (hash.includes(href)) {
-      return <View />;
+      return (
+        <Suspense>
+          <View />
+        </Suspense>
+      );
     }
   }
 
