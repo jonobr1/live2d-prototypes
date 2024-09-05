@@ -12,7 +12,7 @@ import { CubismDefaultParameterId } from '@live2d/framework/cubismdefaultparamet
 import { CubismModelSettingJson } from '@live2d/framework/cubismmodelsettingjson';
 import {
   BreathParameterData,
-  CubismBreath
+  CubismBreath,
 } from '@live2d/framework/effect/cubismbreath';
 import { CubismEyeBlink } from '@live2d/framework/effect/cubismeyeblink';
 import { ICubismModelSetting } from '@live2d/framework/icubismmodelsetting';
@@ -22,12 +22,12 @@ import { CubismMatrix44 } from '@live2d/framework/math/cubismmatrix44';
 import { CubismUserModel } from '@live2d/framework/model/cubismusermodel';
 import {
   ACubismMotion,
-  FinishedMotionCallback
+  FinishedMotionCallback,
 } from '@live2d/framework/motion/acubismmotion';
 import { CubismMotion } from '@live2d/framework/motion/cubismmotion';
 import {
   CubismMotionQueueEntryHandle,
-  InvalidMotionQueueEntryHandleValue
+  InvalidMotionQueueEntryHandleValue,
 } from '@live2d/framework/motion/cubismmotionqueuemanager';
 import { csmMap } from '@live2d/framework/type/csmmap';
 import { csmRect } from '@live2d/framework/type/csmrectf';
@@ -36,7 +36,7 @@ import { csmVector } from '@live2d/framework/type/csmvector';
 import {
   CSM_ASSERT,
   CubismLogError,
-  CubismLogInfo
+  CubismLogInfo,
 } from '@live2d/framework/utils/cubismdebug';
 
 import * as AppDefine from './AppDefine';
@@ -70,7 +70,7 @@ export enum LoadStep {
   CompleteSetupModel,
   LoadTexture,
   WaitLoadTexture,
-  CompleteSetup
+  CompleteSetup,
 }
 
 /**
@@ -87,8 +87,8 @@ export class AppModel extends CubismUserModel {
     this._modelHomeDir = dir;
 
     fetch(`${this._modelHomeDir}${fileName}`)
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => {
+      .then((response) => response.arrayBuffer())
+      .then((arrayBuffer) => {
         const setting: ICubismModelSetting = new CubismModelSettingJson(
           arrayBuffer,
           arrayBuffer.byteLength
@@ -101,7 +101,7 @@ export class AppModel extends CubismUserModel {
         this.setupModel(setting);
       })
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .catch(error => {
+      .catch((error) => {
         // model3.json読み込みでエラーが発生した時点で描画は不可能なので、setupせずエラーをcatchして何もしない
         CubismLogError(`Failed to load file ${this._modelHomeDir}${fileName}`);
       });
@@ -124,7 +124,7 @@ export class AppModel extends CubismUserModel {
       const modelFileName = this._modelSetting.getModelFileName();
 
       fetch(`${this._modelHomeDir}${modelFileName}`)
-        .then(response => {
+        .then((response) => {
           if (response.ok) {
             return response.arrayBuffer();
           } else if (response.status >= 400) {
@@ -134,7 +134,7 @@ export class AppModel extends CubismUserModel {
             return new ArrayBuffer(0);
           }
         })
-        .then(arrayBuffer => {
+        .then((arrayBuffer) => {
           this.loadModel(arrayBuffer, this._mocConsistency);
           this._state = LoadStep.LoadExpression;
 
@@ -158,7 +158,7 @@ export class AppModel extends CubismUserModel {
             this._modelSetting.getExpressionFileName(i);
 
           fetch(`${this._modelHomeDir}${expressionFileName}`)
-            .then(response => {
+            .then((response) => {
               if (response.ok) {
                 return response.arrayBuffer();
               } else if (response.status >= 400) {
@@ -169,7 +169,7 @@ export class AppModel extends CubismUserModel {
                 return new ArrayBuffer(0);
               }
             })
-            .then(arrayBuffer => {
+            .then((arrayBuffer) => {
               const motion: ACubismMotion = this.loadExpression(
                 arrayBuffer,
                 arrayBuffer.byteLength,
@@ -210,7 +210,7 @@ export class AppModel extends CubismUserModel {
         const physicsFileName = this._modelSetting.getPhysicsFileName();
 
         fetch(`${this._modelHomeDir}${physicsFileName}`)
-          .then(response => {
+          .then((response) => {
             if (response.ok) {
               return response.arrayBuffer();
             } else if (response.status >= 400) {
@@ -220,7 +220,7 @@ export class AppModel extends CubismUserModel {
               return new ArrayBuffer(0);
             }
           })
-          .then(arrayBuffer => {
+          .then((arrayBuffer) => {
             this.loadPhysics(arrayBuffer, arrayBuffer.byteLength);
 
             this._state = LoadStep.LoadPose;
@@ -243,7 +243,7 @@ export class AppModel extends CubismUserModel {
         const poseFileName = this._modelSetting.getPoseFileName();
 
         fetch(`${this._modelHomeDir}${poseFileName}`)
-          .then(response => {
+          .then((response) => {
             if (response.ok) {
               return response.arrayBuffer();
             } else if (response.status >= 400) {
@@ -253,7 +253,7 @@ export class AppModel extends CubismUserModel {
               return new ArrayBuffer(0);
             }
           })
-          .then(arrayBuffer => {
+          .then((arrayBuffer) => {
             this.loadPose(arrayBuffer, arrayBuffer.byteLength);
 
             this._state = LoadStep.SetupEyeBlink;
@@ -323,7 +323,7 @@ export class AppModel extends CubismUserModel {
         const userDataFile = this._modelSetting.getUserDataFile();
 
         fetch(`${this._modelHomeDir}${userDataFile}`)
-          .then(response => {
+          .then((response) => {
             if (response.ok) {
               return response.arrayBuffer();
             } else if (response.status >= 400) {
@@ -333,7 +333,7 @@ export class AppModel extends CubismUserModel {
               return new ArrayBuffer(0);
             }
           })
-          .then(arrayBuffer => {
+          .then((arrayBuffer) => {
             this.loadUserData(arrayBuffer, arrayBuffer.byteLength);
 
             this._state = LoadStep.SetupEyeBlinkIds;
@@ -487,7 +487,7 @@ export class AppModel extends CubismUserModel {
   }
 
   /**
-   * @author jonobr1 
+   * @author jonobr1
    */
   public swapTextures(textures: string[]): Promise<void> {
     const usePremultiply = true;
@@ -497,9 +497,8 @@ export class AppModel extends CubismUserModel {
 
     const textureCount: number = this._modelSetting.getTextureCount();
 
-    return new Promise(resolve => {
-
-      for(
+    return new Promise((resolve) => {
+      for (
         let modelTextureNumber = 0;
         modelTextureNumber < textureCount;
         modelTextureNumber++
@@ -508,32 +507,30 @@ export class AppModel extends CubismUserModel {
           console.log('getTextureFileName null');
           continue;
         }
-  
+
         // TODO: Check to see if texture already exists
         let texturePath = textures[modelTextureNumber];
         texturePath = this._modelHomeDir + texturePath;
-  
+
         const onLoad = (textureInfo: TextureInfo): void => {
           this.getRenderer().bindTexture(modelTextureNumber, textureInfo.id);
-  
+
           this._textureCount++;
-  
+
           if (this._textureCount >= textureCount) {
             this._state = LoadStep.CompleteSetup;
             resolve();
           }
         };
-  
+
         AppDelegate.getInstance()
           .getTextureManager()
           .createTextureFromPngFile(texturePath, usePremultiply, onLoad);
         this.getRenderer().setIsPremultipliedAlpha(usePremultiply);
       }
-  
+
       this._state = LoadStep.WaitLoadTexture;
-
     });
-
   }
 
   /**
@@ -565,10 +562,7 @@ export class AppModel extends CubismUserModel {
     this._model.loadParameters(); // 前回セーブされた状態をロード
     if (this._motionManager.isFinished()) {
       // モーションの再生がない場合、待機モーションの中からランダムで再生する
-      this.startRandomMotion(
-        AppDefine.MotionGroupIdle,
-        AppDefine.PriorityIdle
-      );
+      this.startRandomMotion(AppDefine.MotionGroupIdle, AppDefine.PriorityIdle);
     } else {
       motionUpdated = this._motionManager.updateMotion(
         this._model,
@@ -675,7 +669,7 @@ export class AppModel extends CubismUserModel {
 
     if (motion == null) {
       fetch(`${this._modelHomeDir}${motionFileName}`)
-        .then(response => {
+        .then((response) => {
           if (response.ok) {
             return response.arrayBuffer();
           } else if (response.status >= 400) {
@@ -685,7 +679,7 @@ export class AppModel extends CubismUserModel {
             return new ArrayBuffer(0);
           }
         })
-        .then(arrayBuffer => {
+        .then((arrayBuffer) => {
           motion = this.loadMotion(
             arrayBuffer,
             arrayBuffer.byteLength,
@@ -785,6 +779,18 @@ export class AppModel extends CubismUserModel {
   }
 
   /**
+   * @author / jonobr1
+   */
+  public clearExpressions(): void {
+    // TODO: Doesn't work
+    const entries = this._expressionManager.getCubismMotionQueueEntries();
+    for (let i = 0; i < entries.getSize(); i++) {
+      const entry = entries.at(i);
+      entry.setFadeOut(1);
+    }
+  }
+
+  /**
    * ランダムに選ばれた表情モーションをセットする
    */
   public setRandomExpression(): void {
@@ -849,13 +855,11 @@ export class AppModel extends CubismUserModel {
       // ex) idle_0
       const name = `${group}_${i}`;
       if (this._debugMode) {
-        AppPal.printMessage(
-          `[APP]load motion: ${motionFileName} => [${name}]`
-        );
+        AppPal.printMessage(`[APP]load motion: ${motionFileName} => [${name}]`);
       }
 
       fetch(`${this._modelHomeDir}${motionFileName}`)
-        .then(response => {
+        .then((response) => {
           if (response.ok) {
             return response.arrayBuffer();
           } else if (response.status >= 400) {
@@ -865,7 +869,7 @@ export class AppModel extends CubismUserModel {
             return new ArrayBuffer(0);
           }
         })
-        .then(arrayBuffer => {
+        .then((arrayBuffer) => {
           const tmpMotion: CubismMotion = this.loadMotion(
             arrayBuffer,
             arrayBuffer.byteLength,

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 
 import { AppDelegate } from '../components/Live2D/AppDelegate';
@@ -9,14 +9,30 @@ import Live2DCubismCore from '@live2d/core/live2dcubismcore.js?url';
 
 import styles from './DefaultLive2D.module.css';
 import { AppLive2DManager } from '../components/Live2D/AppLive2DManager';
+import Two from 'two.js';
+import { Text } from 'two.js/src/text';
 
 export default function View() {
   const domElement = useRef<HTMLDivElement | null>(null);
-  const refs = useRef<{ model: AppModel | null }>({ model: null });
+  const textarea = useRef<HTMLTextAreaElement | null>(null);
+  const refs = useRef<{
+    model: AppModel | null;
+    two: Two | null;
+    text: Text[];
+    shouldFadeOut: boolean;
+  }>({
+    model: null,
+    two: null,
+    text: [],
+    shouldFadeOut: false,
+  });
+  const [responding, setResponding] = useState<boolean>(false);
 
   useEffect(mount, []);
 
   function mount() {
+    let two: Two;
+
     if (!document.head.querySelector('#live2dcubism')) {
       const script = document.createElement('script');
       script.id = 'live2dcubism';
@@ -41,6 +57,15 @@ export default function View() {
 
       if (AppGLManager.canvas && domElement.current) {
         domElement.current.appendChild(AppGLManager.canvas);
+
+        two = refs.current.two = new Two({
+          type: Two.Types.canvas,
+          fullscreen: true,
+          autostart: true,
+        }).appendTo(domElement.current);
+
+        two.renderer.domElement.style.pointerEvents = 'none';
+        refs.current.two.bind('update', update);
       }
 
       AppDelegate.getInstance().run();
@@ -87,6 +112,10 @@ export default function View() {
       // dealloc everything.
       AppDelegate.releaseInstance();
       AppLive2DManager.releaseInstance();
+      if (two) {
+        two.unbind('update', update);
+        two.release(two.scene);
+      }
     }
 
     function resize() {
@@ -96,9 +125,106 @@ export default function View() {
         AppDelegate.getInstance().onResize(width, height);
       }
     }
+
+    function update() {
+      if (!two) {
+        return;
+      }
+      const children = two.scene.children.slice(0);
+      if (children.length <= 0) {
+        refs.current.shouldFadeOut = false;
+      }
+      for (let i = 0; i < children.length; i++) {
+        const child = children[i] as Text;
+        if (refs.current.shouldFadeOut) {
+          child.opacity -= child.opacity * 0.07;
+          if (child.opacity < 0.01) {
+            child.opacity = 0;
+            two.release(child);
+            two.scene.remove(child);
+          }
+        } else {
+          if (child.opacity > 0.9) {
+            child.opacity = 1;
+          } else {
+            child.opacity += (1 - child.opacity) * 0.1;
+          }
+        }
+      }
+    }
   }
 
-  function send() {}
+  async function send() {
+    if (textarea.current) {
+      setResponding(true);
+      const value = textarea.current.value;
+      textarea.current.value = '';
+      refs.current.model?.setExpression('Sweating');
+      const url =
+        'https://us-central1-jono-fyi.cloudfunctions.net/live2d-open-ai-chat';
+      const endpoint = `${url}?prompt=${encodeURIComponent(value)}`;
+      try {
+        const resp = await fetch(endpoint);
+        const json = await resp.json();
+        const message = json.response.content;
+        setTimeout(() => play(message), 2000);
+        refs.current.model?.setExpression('Star');
+      } catch (e) {
+        console.warn('Unable to query ChatGPT', e);
+        refs.current.model?.setExpression('Sigh');
+        setTimeout(() => {
+          refs.current.model?.clearExpressions();
+        }, 2000);
+      }
+    }
+  }
+
+  function play(str: string) {
+    const two = refs.current.two;
+
+    if (!two) {
+      return;
+    }
+
+    const words = str.split(/\s+/i);
+    let x = two.width / 8;
+    let y = two.height / 4;
+    let timeout = 0;
+
+    words.forEach((word, i) => {
+      const text = new Two.Text(word, x, y);
+
+      text.size = 30;
+      text.family = 'Arial, san-serif';
+      text.alignment = 'left';
+      text.opacity = 0;
+
+      // Calculate next x, y position for text
+      x += text.getBoundingClientRect(true).width + 10;
+      if (x > two.width * 0.75) {
+        x = two.width / 8;
+        y += 40;
+      }
+
+      const length = Math.max(Math.min(word.length, 15), 3) / 15;
+
+      setTimeout(() => {
+        two.add(text);
+        refs.current.model?.setExpression(`Key${word.at(0)?.toUpperCase()}`);
+        if (i >= words.length - 1) {
+          setTimeout(() => {
+            refs.current.shouldFadeOut = true;
+            setResponding(false);
+            refs.current.model?.clearExpressions();
+          }, 2000);
+        }
+      }, timeout);
+
+      timeout += (Math.random() * length + length) * 250;
+
+    });
+
+  }
 
   return (
     <div>
@@ -112,12 +238,14 @@ export default function View() {
         )}
       >
         <textarea
+          ref={textarea}
           className={cn('grow', 'p-4', 'border-stone-300 border')}
-          placeholder="Message AI..."
+          placeholder="Message かおりちゃん..."
         />
         <button
           className={cn('min-w-24', 'inline-block p-4', 'bg-stone-200')}
           onClick={send}
+          disabled={responding}
         >
           Send
         </button>
