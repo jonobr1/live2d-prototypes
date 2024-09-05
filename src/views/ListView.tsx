@@ -12,11 +12,12 @@ export default function View({
 }) {
   return (
     <div className={cn(styles.view)}>
-      <ul>
+      <ol className="list-decimal">
         {views &&
           views.map(({ name, href }, i) => (
             <li key={i}>
               <a
+                className="underline hover:no-underline"
                 href={href}
                 onClick={() =>
                   requestAnimationFrame(() => window.location.reload())
@@ -26,7 +27,7 @@ export default function View({
               </a>
             </li>
           ))}
-      </ul>
+      </ol>
     </div>
   );
 }
