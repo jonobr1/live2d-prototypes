@@ -7,6 +7,7 @@ const Live2DExpressions = lazy(() => import('./views/Live2DExpressions'));
 const Live2DLipSyncing = lazy(() => import('./views/DefaultLive2D'));
 const TwoCharacters = lazy(() => import('./views/TwoCharacters'));
 const AIChat = lazy(() => import('./views/AIChat'));
+const VideoTexture = lazy(() => import('./views/VideoTexture'));
 
 const views = [
   {
@@ -38,6 +39,11 @@ const views = [
     name: 'AI Chatbot',
     href: '#ai-chatbot',
     View: AIChat,
+  },
+  {
+    name: 'Video Texture',
+    href: '#video-texture',
+    View: VideoTexture,
   },
 ];
 

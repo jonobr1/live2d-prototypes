@@ -11,6 +11,17 @@ import styles from './DefaultLive2D.module.css';
 import { AppLive2DManager } from '../components/Live2D/AppLive2DManager';
 import Two from 'two.js';
 import { Text } from 'two.js/src/text';
+import { Group, Tween, Easing } from '@tweenjs/tween.js';
+import { MuteIcon, UnmuteIcon } from '@primer/octicons-react';
+
+const VoiceParams = {
+  ParamVoiceA: 239,
+  ParamVoiceE: 240,
+  ParamVoiceI: 241,
+  ParamVoiceO: 242,
+  ParamVoiceU: 243,
+  ParamVoiceSilence: 244,
+};
 
 export default function View() {
   const domElement = useRef<HTMLDivElement | null>(null);
@@ -20,18 +31,30 @@ export default function View() {
     two: Two | null;
     text: Text[];
     shouldFadeOut: boolean;
+    timeline: Group | null;
+    audio: AudioContext | null;
+    gain?: GainNode;
   }>({
     model: null,
     two: null,
     text: [],
     shouldFadeOut: false,
+    timeline: new Group(),
+    audio: new AudioContext(),
   });
   const [responding, setResponding] = useState<boolean>(false);
+  const [muted, setMuted] = useState<boolean>(false);
 
   useEffect(mount, []);
 
   function mount() {
     let two: Two;
+
+    if (refs.current.audio) {
+      refs.current.gain = refs.current.audio.createGain();
+      refs.current.gain.gain.value = 0;
+      refs.current.gain.connect(refs.current.audio.destination);
+    }
 
     if (!document.head.querySelector('#live2dcubism')) {
       const script = document.createElement('script');
@@ -77,19 +100,14 @@ export default function View() {
 
       // 12: "ModeB_panel3"
       // 13: "ModeB_arms2"
-      // 53: "arms"
-      // 45: "functionkey"
+      // 14: "ModeB_panel"
+      // 15: "ModeB_arms"
       const cubismModel = model.getModel();
 
       cubismModel.setPartOpacityByIndex(12, 0);
       cubismModel.setPartOpacityByIndex(13, 0);
-      cubismModel.setPartOpacityByIndex(53, 0);
-      cubismModel.setPartOpacityByIndex(45, 0);
-
-      // 116: "ParamKeyboardPosition"
-      cubismModel.loadParameters();
-      cubismModel.setParameterValueByIndex(116, 1);
-      cubismModel.saveParameters();
+      cubismModel.setPartOpacityByIndex(14, 0);
+      cubismModel.setPartOpacityByIndex(15, 0);
 
       refs.current.model = model;
     }
@@ -130,24 +148,21 @@ export default function View() {
       if (!two) {
         return;
       }
-      const children = two.scene.children.slice(0);
-      if (children.length <= 0) {
-        refs.current.shouldFadeOut = false;
-      }
-      for (let i = 0; i < children.length; i++) {
-        const child = children[i] as Text;
-        if (refs.current.shouldFadeOut) {
-          child.opacity -= child.opacity * 0.07;
-          if (child.opacity < 0.01) {
-            child.opacity = 0;
-            two.release(child);
-            two.scene.remove(child);
-          }
-        } else {
-          if (child.opacity > 0.9) {
-            child.opacity = 1;
-          } else {
-            child.opacity += (1 - child.opacity) * 0.1;
+      refs.current.timeline?.update();
+      if (refs.current.shouldFadeOut) {
+        const children = two.scene.children.slice(0);
+        if (children.length <= 0) {
+          refs.current.shouldFadeOut = false;
+        }
+        for (let i = 0; i < children.length; i++) {
+          const child = children[i] as Text;
+          if (refs.current.shouldFadeOut) {
+            child.opacity -= child.opacity * 0.07;
+            if (child.opacity < 0.01) {
+              child.opacity = 0;
+              two.release(child);
+              two.scene.remove(child);
+            }
           }
         }
       }
@@ -155,6 +170,14 @@ export default function View() {
   }
 
   async function send() {
+    if (refs.current.audio && refs.current.audio.state === 'suspended') {
+      setMuted((wasMuted) => {
+        if (!wasMuted) {
+          refs.current.audio?.resume();
+        }
+        return false;
+      });
+    }
     if (textarea.current) {
       setResponding(true);
       const value = textarea.current.value;
@@ -180,19 +203,30 @@ export default function View() {
   }
 
   function play(str: string) {
-    const two = refs.current.two;
+    const { two, model, audio, gain } = refs.current;
 
-    if (!two) {
+    if (!two || !model || !audio || !gain) {
       return;
     }
 
+    const cubismModel = model.getModel();
     const words = str.split(/\s+/i);
+
     let x = two.width / 8;
     let y = two.height / 4;
     let timeout = 0;
 
+    gain.gain.value = 0;
+
+    const osc = audio.createOscillator();
+    osc.type = 'sine';
+    osc.connect(gain);
+    osc.start();
+
     words.forEach((word, i) => {
-      const text = new Two.Text(word, x, y);
+      const oy = y + 10;
+      const ty = y;
+      const text = new Two.Text(word, x, oy);
 
       text.size = 30;
       text.family = 'Arial, san-serif';
@@ -205,25 +239,90 @@ export default function View() {
         x = two.width / 8;
         y += 40;
       }
-
       const length = Math.max(Math.min(word.length, 15), 3) / 15;
+      const duration = (Math.random() * length + length) * 250;
 
-      setTimeout(() => {
-        two.add(text);
-        refs.current.model?.setExpression(`Key${word.at(0)?.toUpperCase()}`);
-        if (i >= words.length - 1) {
+      const lips: { tween: null | Tween; value: number } = {
+        tween: null,
+        value: 0,
+      };
+
+      const hasVowels = word.match(/[aeiou]/i);
+      const vowel = (
+        hasVowels === null
+          ? 'ParamVoiceSilence'
+          : `ParamVoice${hasVowels[0].toLocaleUpperCase()}`
+      ) as keyof typeof VoiceParams;
+
+      const index = VoiceParams[vowel];
+      const defaultValue = cubismModel.getParameterDefaultValue(index);
+      const min = cubismModel.getParameterMinimumValue(index);
+      const max = cubismModel.getParameterMaximumValue(index) * 0.5;
+
+      if (osc && refs.current.audio) {
+        const now = refs.current.audio.currentTime;
+        osc.frequency.setValueAtTime(
+          Math.random() * 1000 + 250,
+          now + timeout / 1000
+        );
+        gain.gain.setValueAtTime(0.2, now + timeout / 1000);
+        gain.gain.linearRampToValueAtTime(
+          0,
+          now + Math.min(0.1, duration / 1000) + timeout / 1000
+        );
+      }
+
+      lips.tween = new Tween(lips)
+        .to({ value: 1 }, Math.min(350, duration))
+        .easing(Easing.Sinusoidal.InOut)
+        .onUpdate(() => {
+          const v = Math.sin(lips.value * Math.PI) * (max - min) + min;
+          cubismModel.loadParameters();
+          cubismModel.setParameterValueByIndex(index, v);
+          cubismModel.saveParameters();
+        })
+        .onComplete(() => {
+          cubismModel.loadParameters();
+          cubismModel.setParameterValueByIndex(index, defaultValue);
+          cubismModel.saveParameters();
+        })
+        .delay(timeout)
+        .start();
+
+      const tween = new Tween(text)
+        .to({ opacity: 1 }, 200)
+        .easing(Easing.Elastic.Out)
+        .onUpdate(() => {
+          text.position.y = text.opacity * (ty - oy) + oy;
+        })
+        .delay(timeout)
+        .start();
+
+      refs.current.timeline?.add(tween, lips.tween);
+      two.add(text);
+
+      if (i === words.length - 1) {
+        tween.onComplete(() => {
           setTimeout(() => {
+            Object.values(VoiceParams).forEach((index) => {
+              const value = cubismModel.getParameterDefaultValue(index);
+              cubismModel.loadParameters();
+              cubismModel.setParameterValueByIndex(index, value);
+              cubismModel.saveParameters();
+            });
+            osc?.stop();
             refs.current.shouldFadeOut = true;
             setResponding(false);
             refs.current.model?.clearExpressions();
           }, 2000);
-        }
-      }, timeout);
+        });
+      }
 
-      timeout += (Math.random() * length + length) * 250;
-
+      timeout += duration;
+      if (/[?!.]/gi.test(word)) {
+        timeout += Math.random() * 500 + 500;
+      }
     });
-
   }
 
   return (
@@ -237,6 +336,24 @@ export default function View() {
           'max-w-[800px] mx-auto'
         )}
       >
+        <button
+          className={cn('inline-block p-4', 'bg-stone-200')}
+          onClick={() => {
+            setMuted((wasMuted) => {
+              if (wasMuted) {
+                if (
+                  refs.current.audio &&
+                  refs.current.audio.state === 'suspended'
+                ) {
+                  refs.current.audio.resume();
+                }
+              }
+              return !wasMuted;
+            });
+          }}
+        >
+          {muted ? <MuteIcon size={20} /> : <UnmuteIcon size={20} />}
+        </button>
         <textarea
           ref={textarea}
           className={cn('grow', 'p-4', 'border-stone-300 border')}
